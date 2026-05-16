@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+    <title>Quản Lý Học Viên - English Center</title>
+  </head>
+  <body>
+    <div class="sidebar">
+      <h2>English Center</h2>
+      <p>Quản lý hệ thống</p>
+      <hr />
+
+      <!-- Đường dẫn đến trang danh sách học viên -->
+      <a href="index.html" class="menu-item">Học viên</a>
+
+      <!-- Đường dẫn đến trang quản lý lớp học -->
+      <a href="lophoc.html" class="menu-item">Lớp học</a>
+
+      <!-- Đường dẫn đến trang quản lý tài chính/học phí -->
+      <a href="hocphi.html" class="menu-item">Học phí</a>
+    </div>
+    <div class="main-content">
+      <div class="main-content">
+  <div class="top-search-bar">
+    <div class="search-box">
+      <i class="fa-solid fa-magnifying-glass"></i> 
+      <input type="text" id="searchInput" placeholder="Nhập tên hoặc mã số học viên" onkeyup="searchStudent()">
+    </div>
+  </div>
+      <h1>Danh Sách Học Viên</h1>
+      <div class="stats-container">
+        <div class="stat-card">
+          <h3>Tổng học viên</h3>
+          <p style="font-size: 24px; color: var(--secondary-color)">1,250</p>
+        </div>
+        <div class="stat-card">
+          <h3>Lớp đang mở</h3>
+          <p style="font-size: 24px; color: var(--success-color)">45</p>
+        </div>
+        <div class="stat-card">
+          <h3>Chưa đóng phí</h3>
+          <p style="font-size: 24px; color: var(--danger-color)">12</p>
+        </div>
+      </div>
+
+      <table class="data-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Họ và Tên</th>
+            <th>Lớp học</th>
+            <th>Ngày nhập học</th>
+            <th>Trạng thái</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody id="student-table-body">
+    </tbody>
+</table>
+      <div class="form-container">
+    <h3 id="form-title">Thêm học viên mới</h3>
+    <form id="student-form">
+        <input type="text" id="input-hoTen" placeholder="Họ tên học viên" required />
+        
+        <select id="select-lopHoc">
+            <option value="">Chọn lớp học</option>
+            <option value="ielts">IELTS 6.5+</option>
+            <option value="toeic">TOEIC Beginner</option>
+            <option value="comm">Giao tiếp cơ bản</option>
+        </select>
+
+        <input type="date" id="input-ngayNhapHoc" />
+        <button type="button" class="btn btn-save" id="btn-main" onclick="handleSave(event)">Lưu thông tin</button>
+        <button type="button" id="btn-cancel" class="btn" style="display:none; background-color: #24be31;" onclick="resetForm()">Hủy</button>
+    </form>
+</div>
+    <script src="main.js"></script>
+  </body>
+</html>

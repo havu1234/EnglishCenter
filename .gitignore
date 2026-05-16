@@ -1,0 +1,19 @@
+# Thư mục chứa các thư viện đã cài (Đã cấu hình)
+node_modules/
+
+# File lưu cấu hình bảo mật, token, mật khẩu database (RẤT QUAN TRỌNG)
+.env
+.env.local
+
+# Các file log sinh ra khi chạy dự án bị lỗi
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Thư mục build (Nếu sau này có dùng React/Vite/Next.js cho Frontend)
+dist/
+build/
+
+# Các file cấu hình riêng của hệ điều hành hoặc IDE
+.DS_Store
+.vscode/

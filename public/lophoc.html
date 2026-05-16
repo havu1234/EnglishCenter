@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Quản lý Lớp Học</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Sử dụng chung file CSS -->
+  </head>
+  <body>
+    <div class="sidebar">
+      <h2>English Center</h2>
+      <p>Quản lý hệ thống</p>
+      <hr />
+      <a href="index.html" class="menu-item"> Học viên</a>
+      <a href="lophoc.html" class="menu-item active"> Lớp học</a>
+      <a href="hocphi.html" class="menu-item">Học phí</a>
+    </div>
+
+    <div class="main-content">
+      <div class="main-content">
+  <div class="top-search-bar">
+    <div class="search-box">
+      <i class="fa-solid fa-magnifying-glass"></i> 
+      <input type="text" id="searchInput" placeholder="Nhập tên hoặc mã số lớp học" onkeyup="searchStudent()">
+    </div>
+  </div>
+      <h1>Danh Sách Lớp Học</h1>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Mã Lớp</th>
+            <th>Tên Lớp</th>
+            <th>Giáo viên</th>
+            <th>Sĩ số</th>
+            <th>Lịch học</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>IELTS-01</td>
+            <td>IELTS Foundation</td>
+            <td>Ms. Taylor</td>
+            <td>15/20</td>
+            <td>Thứ 2-4-6 (18:00)</td>
+          </tr>
+          <tr>
+            <td>TOEIC-05</td>
+            <td>TOEIC Cấp tốc</td>
+            <td>Mr. Smith</td>
+            <td>10/12</td>
+            <td>Thứ 7-CN (08:00)</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="form-container">
+        <h3>Thêm lớp học mới</h3>
+        <form>
+          <input type="text" placeholder="Tên lớp học" required />
+          <input type="text" placeholder="Tên giáo viên" required />
+          <select>
+            <option value="">Chọn lớp học</option>
+            <option value="ielts">IELTS 6.5+</option>
+            <option value="toeic">TOEIC Beginner</option>
+            <option value="comm">Giao tiếp cơ bản</option>
+          </select>
+          <input
+            type="number"
+            placeholder="Sĩ số (vd: 20)"
+            min="1"
+            style="width: 150px"
+          />
+
+          <input
+            list="lich-hoc-goi-y"
+            name="lich-hoc"
+            placeholder="Chọn hoặc nhập lịch học"
+          />
+
+          <datalist id="lich-hoc-goi-y">
+            <option value="Thứ 2-4-6 (18:00)"></option>
+            <option value="Thứ 3-5-7 (18:00)"></option>
+            <option value="Thứ 7-CN (08:00)"></option>
+            <option value="Thứ 7-CN (14:00)"></option>
+          </datalist>
+
+          <button type="submit" class="btn btn-add">Lưu thông tin</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
