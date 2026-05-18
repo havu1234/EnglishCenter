@@ -4,15 +4,18 @@ const cors = require("cors");
 const Student = require("./student");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static("public")); // Để truy cập được HTML/CSS/JS trong folder public
+app.use(express.static("public"));
 
 // Kết nối MongoDB
+const MONGO_URI =
+  process.env.MONGODB_URI || "mongodb://localhost:27017/EnglishCenter";
+
 mongoose
-  .connect("mongodb://localhost:27017/EnglishCenter")
+  .connect(MONGO_URI)
   .then(() => console.log("--- Đã kết nối MongoDB thành công ---"))
   .catch((err) => console.error("Lỗi kết nối DB:", err));
 
@@ -47,7 +50,7 @@ app.post("/api/students", async (req, res) => {
 // API 3: Sửa học viên (ĐÃ CẬP NHẬT SỐ ĐIỆN THOẠI)
 app.put("/api/students/:id", async (req, res) => {
   try {
-    // 🛠️ THÊM soDienThoai VÀO ĐOẠN BÓC TÁCH DỮ LIỆU (DESTRUCTURING)
+    // THÊM soDienThoai VÀO ĐOẠN BÓC TÁCH DỮ LIỆU (DESTRUCTURING)
     const { hoTen, lopHoc, ngayNhapHoc, trangThai, soDienThoai } = req.body;
 
     const updatedStudent = await Student.findByIdAndUpdate(
@@ -72,5 +75,5 @@ app.delete("/api/students/:id", async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server đang chạy tại: http://localhost:${PORT}`);
+  console.log(`Server đang chạy tại cổng: ${PORT}`);
 });
